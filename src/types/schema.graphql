@@ -1,0 +1,19 @@
+input AuthPwd {
+  pwd: String!
+  token: String!
+}
+
+type Mutation {
+  setPwd(data: AuthPwd!): User!
+  signup(email: String!, password: String!, name: String!): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+}
+
+type Subscription {
+  feedSubscription: Post
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
