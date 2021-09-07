@@ -1,0 +1,6 @@
+type Order implements Node{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  user: User @relation(link: INLINE)
+}

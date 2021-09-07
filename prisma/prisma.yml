@@ -2,6 +2,8 @@ endpoint: ${env:URL_BASE}/default/${env:ENVIROMENT}
 databaseType: document
 datamodel:
   - ./models/user.prisma
+  - ./models/order.prisma
+  - ./models/Node.prisma
 
 generate:
   - generator: typescript-client
@@ -13,9 +15,9 @@ seed:
   import: seed.graphql
 
 # Ensures Prisma client is re-generated after a datamodel change.
-# The `prisma generate` command was executed twice. Since Prisma 1.31, 
+# The `prisma generate` command was executed twice. Since Prisma 1.31,
 # the Prisma client is generated automatically after running `prisma deploy`.
-# It is not necessary to generate it via a `post-deploy` hook any more, you can 
+# It is not necessary to generate it via a `post-deploy` hook any more, you can
 # therefore remove the hook if you do not need it otherwise.
 # hooks:
 #   post-deploy:
