@@ -1,0 +1,15 @@
+type Seat implements Node{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  column: Int!
+  line: Int!
+  status: TypeSeatStatus!
+  type: String!
+}
+
+enum TypeSeatStatus {
+  AVAILABLE
+  TAKEN
+  OUT_OF_SERVICE
+}

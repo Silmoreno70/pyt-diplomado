@@ -2,5 +2,25 @@ type Order implements Node{
   id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
-  user: User @relation(link: INLINE)
+  customer: Customer! @relation(link: INLINE)
+  price: Int!
+  items: [Item!]! @relation(link: INLINE)
+  tickets: [Ticket!]! @relation(link: INLINE)
+  discount: Int!
+  employee: Employee! @relation(link: INLINE)
+  PaymentMethod: TypePayment!
+}
+
+enum TypePayment {
+  CASH
+  CARD
+  POINTS
+}
+
+enum TypeStatus {
+  CANCELLED
+  CONFIRMED
+  CREATED
+  PAID
+  PENDING
 }

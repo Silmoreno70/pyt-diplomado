@@ -1,0 +1,8 @@
+type Combo implements Node {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  name: String!
+  description: String
+  items: [Item!]! @relation(link: INLINE)
+}

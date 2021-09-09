@@ -1,0 +1,9 @@
+type Ticket implements Node{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  seat: Seat! @relation(link: INLINE)
+  show: Show! @relation(link: INLINE)
+  cost: Int!
+  points: Int!
+}

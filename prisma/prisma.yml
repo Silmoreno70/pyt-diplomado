@@ -1,9 +1,20 @@
 endpoint: ${env:URL_BASE}/default/${env:ENVIROMENT}
 databaseType: document
 datamodel:
-  - ./models/user.prisma
-  - ./models/order.prisma
+  - ./models/combo.prisma
+  - ./models/billboard.prisma
+  - ./models/customer.prisma
+  - ./models/employee.prisma
+  - ./models/item.prisma
+  - ./models/membership.prisma
+  - ./models/movies.prisma
   - ./models/Node.prisma
+  - ./models/order.prisma
+  - ./models/room.prisma
+  - ./models/seat.prisma
+  - ./models/show.prisma
+  - ./models/ticket.prisma
+  - ./models/user.prisma
 
 generate:
   - generator: typescript-client

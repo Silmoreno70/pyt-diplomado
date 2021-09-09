@@ -1,0 +1,8 @@
+type Show implements Node{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  movie: Movie! @relation(link: INLINE)
+  schedule: String!
+  room: Room! @relation(link: INLINE)
+}

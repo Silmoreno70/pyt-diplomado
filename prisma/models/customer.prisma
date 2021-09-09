@@ -1,0 +1,7 @@
+type Customer implements Node{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  alias: String!
+  user: User @relation(link: INLINE)
+}

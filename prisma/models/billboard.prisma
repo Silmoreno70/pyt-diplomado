@@ -1,0 +1,9 @@
+type Billboard implements Node{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  title: String!
+  startAt: DateTime!
+  endAt: DateTime!
+  shows: [Show!]! @relation(link: INLINE)
+}

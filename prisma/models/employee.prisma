@@ -1,0 +1,15 @@
+type Employee implements Node{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  rol: TypeRol!
+  user: User! @relation(link: INLINE)
+}
+
+enum TypeRol {
+  CASHIER
+  MANAGER
+  CLEANER
+  PROJECTION
+  GROSERY
+}

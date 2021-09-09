@@ -1,0 +1,18 @@
+type Room implements Node{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  available: Boolean! @default(value: true)
+  type: TypeRoom!
+  seats: [Seat]! @relation(link: INLINE)
+  number: Int!
+}
+
+enum TypeRoom {
+  VIP
+  CUATROD
+  TRESD
+  MACRO
+  IMAX
+  CLASICA
+}

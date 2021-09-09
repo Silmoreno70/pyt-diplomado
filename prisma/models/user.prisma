@@ -1,8 +1,21 @@
-type User {
+type User implements Node {
   id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   email: String! @unique
+  phone: Int @unique
   password: String
+  rfc: String @unique
   name: String!
+  lastName: String
+  points: Int
+  membership: Membership @relation(link: INLINE)
+  type: TypeUser
+  orders: [Order] @relation(link: INLINE)
+}
+
+enum TypeUser {
+  ADMIN
+  EMPLOYEE
+  CUSTOMER
 }
