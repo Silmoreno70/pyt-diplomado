@@ -9,6 +9,7 @@ type Order implements Node{
   discount: Int!
   employee: Employee! @relation(link: INLINE)
   PaymentMethod: TypePayment!
+  user: User! @relation(name: "OrderUser", link: INLINE)
 }
 
 enum TypePayment {

@@ -10,7 +10,7 @@ type Mutation {
 }
 
 type Subscription {
-  feedSubscription: Post
+  feedSubscription: User
 }
 
 type AuthPayload {

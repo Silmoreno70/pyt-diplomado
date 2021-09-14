@@ -11,7 +11,8 @@ type User implements Node {
   points: Int
   membership: Membership @relation(link: INLINE)
   type: TypeUser
-  orders: [Order] @relation(link: INLINE)
+  token: String @unique
+  orders: [Order!]! @relation(name: "UserOrders" link: INLINE)
 }
 
 enum TypeUser {
