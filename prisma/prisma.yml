@@ -7,7 +7,7 @@ datamodel:
   - ./models/employee.prisma
   - ./models/item.prisma
   - ./models/membership.prisma
-  - ./models/movies.prisma
+  - ./models/movie.prisma
   - ./models/Node.prisma
   - ./models/order.prisma
   - ./models/room.prisma
