@@ -1,7 +1,7 @@
 import * as bcrypt from "bcryptjs";
 import { UserCreateInput } from "../../generated/prisma-client";
 import { Context } from "../../utils";
-import * as jwt from 'jsonwebtoken'
+import * as randomstring from 'randomstring'
 
 export default {
   async setPwd(parent, args, ctx: Context) {
@@ -11,13 +11,13 @@ export default {
   },
   updateUser: (parent, args: { data: any, where: any}, ctx: Context) => ctx.prisma.updateUser(args),
   createUser: async (parent, { data }: { data: UserCreateInput}, ctx: Context) => {
-    const token = jwt.sign({ userId: data.id }, process.env.APP_SECRET, {expiresIn: "10h"})
-    const pass = await bcrypt.hash(data.password, 10)
-    console.log(pass)
+    const token = randomstring.generate(8).toUpperCase()
+    const salt = bcrypt.genSaltSync(10)
+    const password = await bcrypt.hashSync(data.password, salt)
     data = {
       token,
       ...data,
-      password: pass
+      password
     }
   return ctx.prisma.createUser(data)
   }
