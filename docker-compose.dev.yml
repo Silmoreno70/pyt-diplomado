@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  app:
+    container_name: diplo-app
+    image: diplo/app
+    restart: on-failure
+    environment:
+      - NODE_ENV=development
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 3000:3000

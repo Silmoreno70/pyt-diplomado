@@ -3,6 +3,10 @@ services:
   prisma:
     image: prismagraphql/prisma:1.34
     restart: always
+    depends_on:
+      - mongo
+    links:
+      - mongo
     ports:
     - "4466:4466"
     environment:
@@ -14,6 +18,25 @@ services:
           default:
             connector: mongo
             uri: 'mongodb://prisma:prisma@mongo'
+  app:
+    container_name: diplo
+    image: diplo/app
+    restart: on-failure
+    depends_on:
+      - prisma
+    environment:
+      - NODE_ENV=development
+      - URL_BASE=http://prisma:4466
+      - ENVIROMENT=development
+      - PRISMA_SECRET=secretodeamorsecreto
+      - APP_SECRET=secreto123
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    links:
+      - prisma
   mongo:
     image: mongo:3.6
     restart: always
